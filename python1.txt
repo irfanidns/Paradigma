@@ -1,0 +1,743 @@
+Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 20:34:20) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> the_world_is_flat = True
+if the_world_is_flat:
+    print("Be careful not to fall off!")
+
+SyntaxError: multiple statements found while compiling a single statement
+>>> the_world_is_flat = True
+if the_world_is_flat:
+    print("Be careful not to fall off!")
+
+
+SyntaxError: multiple statements found while compiling a single statement
+>>> the_world_is_flat = True
+>>> if the_world_is_flat:
+	print("Be careful not to fall off!")
+
+	
+Be careful not to fall off!
+>>> 2 + 2
+4
+>>> 50 - 5*6
+20
+>>> (50 - 5*6) / 4
+5.0
+>>> 8 / 5
+1.6
+>>> 
+>>> 17 / 3
+5.666666666666667
+>>> 17 // 3
+5
+>>> 17 % 3
+2
+>>> 5 * 3 + 2
+17
+>>> 
+>>> 5 ** 2
+25
+>>> 2 ** 7
+128
+>>> width = 20
+>>> height = 5 * 9
+>>> width * height
+900
+>>> 
+>>> n
+Traceback (most recent call last):
+  File "<pyshell#22>", line 1, in <module>
+    n
+NameError: name 'n' is not defined
+>>> 
+>>> 4 * 3.75 - 1
+14.0
+>>> 
+>>> tax = 12.5 / 100
+price = 100.50
+price * tax
+
+price + _
+
+round(_, 2)
+SyntaxError: multiple statements found while compiling a single statement
+>>> tax = 12.5 / 100
+>>> price = 100.50
+>>> price * tax
+12.5625
+>>> price + _
+113.0625
+>>> round(_, 2)
+113.06
+>>> 'spam eggs'
+'spam eggs'
+>>> 'doesn\'t'
+"doesn't"
+>>> "doesn't"
+"doesn't"
+>>> '"Yes," they said.'
+'"Yes," they said.'
+>>> "\"Yes,\" they said."
+'"Yes," they said.'
+>>> '"Isn\'t," they said.'
+'"Isn\'t," they said.'
+>>> 
+>>> >>> '"Isn\'t," they said.'
+SyntaxError: invalid syntax
+>>> '"Isn\'t," they said.'
+'"Isn\'t," they said.'
+>>> print('"Isn\'t," they said.')
+"Isn't," they said.
+>>> s = 'First line.\nSecond line.'
+>>> s  # without print(),
+'First line.\nSecond line.'
+>>> print(s)  # with print(),
+First line.
+Second line.
+>>> 
+>>> print('C:\some\name')
+C:\some
+ame
+>>> print(r'C:\some\name')
+C:\some\name
+>>> 
+>>> 
+KeyboardInterrupt
+>>> # 3 times 'un', followed by 'ium'
+>>> 3 * 'un' + 'ium'
+'unununium'
+>>> 
+>>> 'Py' 'thon'
+'Python'
+>>> 
+>>> text = ('Put several strings within parentheses '
+	'to have them joined together.')
+>>> text
+'Put several strings within parentheses to have them joined together.'
+>>> prefix = 'Py'
+>>> prefix 'thon'
+SyntaxError: invalid syntax
+>>> ('un' * 3) 'ium'
+SyntaxError: invalid syntax
+>>> 
+>>> 
+>>> prefix + 'thon'
+'Python'
+>>> 
+>>> word = 'Python'
+>>> word[0]
+'P'
+>>> word[5]
+'n'
+>>> 
+>>> word[-1]
+'n'
+>>> word[-2]
+'o'
+>>> word[-6]
+'P'
+>>> 
+>>> word[0:2
+     ]
+'Py'
+>>> word[2:5]
+'tho'
+>>> 
+>>> word[:2] + word[2:]
+'Python'
+>>> word[:4] + word[4:]
+'Python'
+>>> 
+>>> word[:2]
+'Py'
+>>> word[4:]
+'on'
+>>> word[-2:]
+'on'
+>>> 
+>>> word[42]
+Traceback (most recent call last):
+  File "<pyshell#83>", line 1, in <module>
+    word[42]
+IndexError: string index out of range
+>>> 
+>>> word[4:42]
+'on'
+>>> word[42:]
+''
+>>> word[0] = 'J'
+Traceback (most recent call last):
+  File "<pyshell#87>", line 1, in <module>
+    word[0] = 'J'
+TypeError: 'str' object does not support item assignment
+>>> word[2:] = 'py'
+Traceback (most recent call last):
+  File "<pyshell#88>", line 1, in <module>
+    word[2:] = 'py'
+TypeError: 'str' object does not support item assignment
+>>> 
+>>> 'J' + word[1:]
+'Jython'
+>>> word[:2] + 'py'
+'Pypy'
+>>> 
+>>> 
+KeyboardInterrupt
+>>> s = 'supercalifragilisticexpialidocious'
+>>> len(s)
+34
+>>> squares = [1, 4, 9, 16, 25]
+>>> squares
+[1, 4, 9, 16, 25]
+>>> 
+>>> squares[0]  # indexing returns the item
+1
+>>> squares[-1]
+25
+>>> squares[-3:]  # slicing returns a new list
+[9, 16, 25]
+>>> 
+>>> squares[:]
+[1, 4, 9, 16, 25]
+>>> 
+>>> squares + [36, 49, 64, 81, 100]
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+>>> 
+>>> cubes = [1, 8, 27, 65, 125]  # something's wrong here
+>>> 4 ** 3  # the cube of 4 is 64, not 65!
+64
+>>> cubes[3] = 64  # replace the wrong value
+>>> cubes
+[1, 8, 27, 64, 125]
+>>> 
+>>> cubes.append(216)  # add the cube of 6
+>>> cubes.append(7 ** 3)  # and the cube of 7
+>>> cubes
+[1, 8, 27, 64, 125, 216, 343]
+>>> 
+>>> letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+>>> letters
+['a', 'b', 'c', 'd', 'e', 'f', 'g']
+>>> # replace some values
+>>> letters[2:5] = ['C', 'D', 'E']
+>>> letters
+['a', 'b', 'C', 'D', 'E', 'f', 'g']
+>>> # now remove them
+>>> letters[2:5] = []
+>>> letters
+['a', 'b', 'f', 'g']
+>>> # clear the list by replacing all the elements with an empty list
+>>> letters[:] = []
+>>> letters
+[]
+>>> 
+>>>  letters = ['a', 'b', 'c', 'd']
+ 
+SyntaxError: unexpected indent
+>>> letters = ['a', 'b', 'c', 'd']
+>>> len(letters)
+4
+>>> 
+>>> a = ['a', 'b', 'c']
+>>> n = [1, 2, 3]
+>>> x = [a, n]
+>>> x
+[['a', 'b', 'c'], [1, 2, 3]]
+>>> x[0]
+['a', 'b', 'c']
+>>> x[0][1]
+'b'
+>>> 
+>>> # Fibonacci series:
+>>> # the sum of two elements defines the next
+>>> a, b = 0, 1
+>>> while a < 10:
+	print(a)
+	a, b = b, a+b
+
+	
+0
+1
+1
+2
+3
+5
+8
+>>> 
+>>> i = 256*256
+>>> print('The value of i is', i)
+The value of i is 65536
+>>> 
+>>> a, b = 0, 1
+>>> while a < 1000:
+	print(a, end=',')
+	a, b = b, a+b
+
+	
+0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,
+>>> 
+>>> x = int(input("Please enter an integer: "))
+Please enter an integer: 
+Traceback (most recent call last):
+  File "<pyshell#155>", line 1, in <module>
+    x = int(input("Please enter an integer: "))
+ValueError: invalid literal for int() with base 10: ''
+>>> x = int(input("Please enter an integer: "))
+Please enter an integer: 42
+>>> if x < 0:
+	x = 0
+	print('Negative changed to zero')
+elif x == 0:
+	print('Zero')
+elif x == 1:
+	print('Single')
+else:
+	print('More')
+
+	
+More
+>>> 
+>>> # Measure some strings:
+>>> words = ['cat', 'window', 'defenestrate']
+>>> for w in words:
+	print(w, len(w))
+
+	
+cat 3
+window 6
+defenestrate 12
+>>> 
+>>> for w in words[:]:  # Loop over a slice copy of the entire list
+	if len(w) > 6:
+		words.insert(0, w)
+
+		
+>>> words
+['defenestrate', 'cat', 'window', 'defenestrate']
+>>> 
+>>> for i in range(5):
+	print(i)
+
+	
+0
+1
+2
+3
+4
+>>> 
+>>> 
+KeyboardInterrupt
+>>> a = ['Mary', 'had', 'a', 'little', 'lamb']
+>>> for i in range(len(a)):
+	print(i, a[i])
+
+	
+0 Mary
+1 had
+2 a
+3 little
+4 lamb
+>>> 
+>>> print(range(10))
+range(0, 10)
+>>> 
+>>> list(range(5))
+[0, 1, 2, 3, 4]
+>>> 
+>>> for n in range(2, 10):
+	for x in range(2, n):
+		if n % x == 0:
+		print(n, 'equals', x, '*', n//x)
+		
+SyntaxError: expected an indented block
+>>> for n in range(2, 10):
+	for x in range(2, n):
+		if n % x == 0:
+			print(n, 'equals', x, '*', n//x)
+			break
+	else:
+		# loop fell through without finding a factor
+		print(n, 'is a prime number')
+
+		
+2 is a prime number
+3 is a prime number
+4 equals 2 * 2
+5 is a prime number
+6 equals 2 * 3
+7 is a prime number
+8 equals 2 * 4
+9 equals 3 * 3
+>>> 
+>>> for num in range(2, 10):
+	if num % 2 == 0:
+		print("Found an even number", num)
+		continue
+	print("Found a number", num)
+
+	
+Found an even number 2
+Found a number 3
+Found an even number 4
+Found a number 5
+Found an even number 6
+Found a number 7
+Found an even number 8
+Found a number 9
+>>> 
+>>> while True:
+	pass  # Busy-wait for keyboard interrupt (Ctrl+C)
+
+Traceback (most recent call last):
+  File "<pyshell#216>", line 2, in <module>
+    pass  # Busy-wait for keyboard interrupt (Ctrl+C)
+KeyboardInterrupt
+>>> 
+>>> class MyEmptyClass:
+	pass
+
+>>> def initlog(*args):
+	pass   # Remember to implement this!
+
+>>> def fib(n):    # write Fibonacci series up to n
+	"""Print a Fibonacci series up to n."""
+	a, b = 0, 1
+	while a < n:
+		print(a, end=' ')
+		a, b = b, a+b
+	print()
+
+	
+>>> # Now call the function we just defined:
+>>> fib(2000)
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 
+>>> 
+>>> fib
+<function fib at 0x0000000002FB1F78>
+>>> 
+KeyboardInterrupt
+>>> f = fib
+>>> f(100)
+0 1 1 2 3 5 8 13 21 34 55 89 
+>>> 
+>>> fib(0)
+
+>>> print(fib(0))
+
+None
+>>> 
+>>> def fib2(n):  # return Fibonacci series up to n
+	"""Return a list containing the Fibonacci series up to n."""
+	result = []
+	a, b = 0, 1
+	while a < n:
+		result.append(a)    # see below
+		a, b = b, a+b
+	return result
+
+>>> f100 = fib2(100)    # call it
+>>> f100                # write the result
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+>>> 
+>>> def function(a):
+	pass
+
+>>> function(0, a=0)
+Traceback (most recent call last):
+  File "<pyshell#257>", line 1, in <module>
+    function(0, a=0)
+TypeError: function() got multiple values for argument 'a'
+>>> 
+>>> def concat(*args, sep="/"):
+	return sep.join(args)
+
+>>> concat("earth", "mars", "venus")
+'earth/mars/venus'
+>>> concat("earth", "mars", "venus", sep=".")
+'earth.mars.venus'
+>>> 
+>>> list(range(3, 6))
+[3, 4, 5]
+>>> args = [3, 6]
+>>> list(range(*args))
+[3, 4, 5]
+>>> 
+>>> def parrot(voltage, state='a stiff', action='voom'):
+	print("-- This parrot wouldn't", action, end=' ')
+	print("if you put", voltage, "volts through it.", end=' ')
+	print("E's", state, "!
+	      
+SyntaxError: EOL while scanning string literal
+>>> def parrot(voltage, state='a stiff', action='voom'):
+	print("-- This parrot wouldn't", action, end=' ')
+	print("if you put", voltage, "volts through it.", end=' ')
+	print("E's", state, "!")
+
+	
+>>> d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
+>>> parrot(**d)
+-- This parrot wouldn't VOOM if you put four million volts through it. E's bleedin' demised !
+>>> 
+>>> def make_incrementor(n):
+	return lambda x: x + n
+
+>>> f = make_incrementor(42)
+>>> f(0)
+42
+>>> f(1)
+43
+>>> 
+>>> pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+>>> pairs.sort(key=lambda pair: pair[1])
+>>> pairs
+[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+>>> 
+>>> def my_function():
+	"""Do nothing, but document it.
+
+	No, really, it doesn't do anything.
+	"""
+	pass
+
+>>> print(my_function.__doc__)
+Do nothing, but document it.
+
+	No, really, it doesn't do anything.
+	
+>>> 
+>>> def f(ham: str, eggs: str = 'eggs') -> str:
+	print("Annotations:", f.__annotations__)
+	print("Arguments:", ham, eggs)
+	return ham + ' and ' + eggs
+
+>>> f('spam')
+Annotations: {'ham': <class 'str'>, 'eggs': <class 'str'>, 'return': <class 'str'>}
+Arguments: spam eggs
+'spam and eggs'
+>>> 
+>>> fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+>>> fruits.count('apple')
+2
+>>> fruits.count('tangerine')
+0
+>>> fruits.index('banana')
+3
+>>> fruits.index('banana', 4)  # Find next banana starting a position 4
+6
+>>> fruits.reverse()
+>>> fruits
+['banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange']
+>>> fruits.append('grape')
+>>> fruits
+['banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange', 'grape']
+>>> fruits.sort()
+>>> fruits
+['apple', 'apple', 'banana', 'banana', 'grape', 'kiwi', 'orange', 'pear']
+>>> fruits.pop()
+'pear'
+>>> 
+>>> stack = [3, 4, 5]
+>>> stack.append(6)
+>>> stack.append(7)
+>>> stack
+[3, 4, 5, 6, 7]
+>>> 
+>>> stack.pop()
+7
+>>> stack
+[3, 4, 5, 6]
+>>> stack.pop()
+6
+>>> stack.pop()
+5
+>>> stack
+[3, 4]
+>>> 
+>>> from collections import deque
+>>> queue = deque(["Eric", "John", "Michael"])
+>>> queue.append("Terry")
+>>> queue.append("Graham")
+>>> queue.popleft()
+'Eric'
+>>> queue.popleft()
+'John'
+>>> queue
+deque(['Michael', 'Terry', 'Graham'])
+>>> 
+>>> squares = []
+>>> 
+>>> for x in range(10):
+	squares.append(x**2)
+
+	
+>>> squares
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+>>> [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+>>> combs = []
+>>> for x in [1,2,3]:
+	for y in [3,1,4]:
+		if x != y:
+			combs.append((x, y))
+
+			
+>>> combs
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+>>> 
+>>> vec = [[1,2,3], [4,5,6], [7,8,9]]
+>>> [num for elem in vec for num in elem]
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> from math import pi
+>>> [str(round(pi, i)) for i in range(1, 6)]
+['3.1', '3.14', '3.142', '3.1416', '3.14159']
+>>> matrix = [
+	[1, 2, 3, 4],
+	[5, 6, 7, 8],
+	[9, 10, 11, 12],
+	]
+>>> 
+>>> [[row[i] for row in matrix] for i in range(4)]
+[[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]
+>>> transposed = []
+>>> for i in range(4):
+	transposed.append([row[i] for row in matrix])
+
+	
+>>> transposed
+[[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]
+>>> transposed = []
+>>> for i in range(4):
+	transposed_row = []
+	for row in matrix:
+		transposed_row.append(row[i])
+	 transposed.append(transposed_row)
+	 
+SyntaxError: unindent does not match any outer indentation level
+>>> transposed = []
+>>> or i in range(4):
+	
+SyntaxError: invalid syntax
+>>> transposed = []
+>>> for i in range(4):
+	transposed_row = []
+
+	
+>>> a = [-1, 1, 66.25, 333, 333, 1234.5]
+>>> del a[0]
+>>> a
+[1, 66.25, 333, 333, 1234.5]
+>>> del a[2:4]
+>>> a
+[1, 66.25, 1234.5]
+>>> del a[:]
+>>> a
+[]
+>>> del a
+>>> 
+>>> t = 12345, 54321, 'hello!'
+>>> t[0]
+12345
+>>> t
+(12345, 54321, 'hello!')
+>>> empty = ()
+>>> singleton = 'hello'
+>>> len(empty)
+0
+>>> len(singleton)
+5
+>>> singleton
+'hello'
+>>> x, y, z = t
+>>> basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+>>> print(basket)
+{'orange', 'apple', 'pear', 'banana'}
+>>> 'orange' in basket
+True
+>>> 'crabgrass' in basket
+False
+>>> a = set('abracadabra')
+>>> b = set('alacazam')
+>>> a
+{'r', 'c', 'b', 'a', 'd'}
+>>> a - b
+{'r', 'b', 'd'}
+>>> a | b
+{'r', 'c', 'l', 'b', 'a', 'd', 'z', 'm'}
+>>> a & b
+{'a', 'c'}
+>>> a ^ b
+{'d', 'r', 'l', 'z', 'b', 'm'}
+>>> tel = {'jack': 4098, 'sape': 4139}
+>>> tel['guido'] = 4127
+>>> tel
+{'jack': 4098, 'sape': 4139, 'guido': 4127}
+>>> tel['jack']
+4098
+>>> del tel['sape']
+>>> tel['irv'] = 4127
+>>> tel
+{'jack': 4098, 'guido': 4127, 'irv': 4127}
+>>> list(tel)
+['jack', 'guido', 'irv']
+>>> sorted(tel)
+['guido', 'irv', 'jack']
+>>> 'guido' in tel
+True
+>>> 'jack' not in tel
+False
+>>> dict([('sape', 4139), ('guido', 4127), ('jack', 4098)])
+{'sape': 4139, 'guido': 4127, 'jack': 4098}
+>>> {x: x**2 for x in (2, 4, 6)}
+{2: 4, 4: 16, 6: 36}
+>>> dict(sape=4139, guido=4127, jack=4098)
+{'sape': 4139, 'guido': 4127, 'jack': 4098}
+>>> knights = {'gallahad': 'the pure', 'robin': 'the brave'}
+>>> for k, v in knights.items():
+	print(k, v)
+
+	
+gallahad the pure
+robin the brave
+>>> for i, v in enumerate(['tic', 'tac', 'toe']):
+	print(i, v)
+
+	
+0 tic
+1 tac
+2 toe
+>>> questions = ['name', 'quest', 'favorite color']
+>>> answers = ['lancelot', 'the holy grail', 'blue']
+>>> for q, a in zip(questions, answers):
+	print('What is your {0}?  It is {1}.'.format(q, a))
+
+	
+What is your name?  It is lancelot.
+What is your quest?  It is the holy grail.
+What is your favorite color?  It is blue.
+>>> for i in reversed(range(1, 10, 2)):
+	print(i)
+
+	
+9
+7
+5
+3
+1
+>>> basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+>>> for f in sorted(set(basket)):
+	print(f)
+
+	
+apple
+banana
+orange
+pear
+>>> import math
+>>> raw_data = [56.2, float('NaN'), 51.7, 55.3, 52.5, float('NaN'), 47.8]
+>>> filtered_data = []
+>>> for value in raw_data:
+if not math.isnan(value):
+	
+SyntaxError: expected an indented block
+>>> 
+
