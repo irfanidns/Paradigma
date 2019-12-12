@@ -1,0 +1,178 @@
+Pure Functions
+---------------------------------------------------------------------------------------------------------
+>>> def multiply_2_pure(numbers):
+    new_numbers = []
+    for n in numbers:
+        new_numbers.append(n * 2)
+    return new_numbers
+
+>>> 
+>>> original_numbers = [1, 3, 5, 10]
+>>> changed_numbers = multiply_2_pure(original_numbers)
+>>> print(original_numbers)
+[1, 3, 5, 10]
+>>> print(changed_numbers)
+[2, 6, 10, 20]
+
+// membuat fungsi yang tulis lebih mudah untuk diuji. Karena tidak mengubah keadaan variabel apa pun,  dijamin untuk mendapatkan output yang sama setiap kali menjalankan fungsi dengan input yang sama.
+Daftar angka asli tidak berubah, dan tidak mereferensikan variabel lain di luar fungsi, jadi itu murni.
+
+
+Immutability
+
+----------------------------------------------------------------------------------------------------------------
+>>> mutable_collection = ['Tim', 10, [4, 5]]
+>>> immutable_collection = ('Tim', 10, [4, 5])
+>>> print(mutable_collection[2])
+[4, 5]
+>>> print(immutable_collection[2])
+[4, 5]
+>>> mutable_collection[1] = 15
+
+>>> immutable_collection[1] = 15
+Traceback (most recent call last):
+  File "<pyshell#15>", line 1, in <module>
+    immutable_collection[1] = 15
+TypeError: 'tuple' object does not support item assignment
+
+//Kesalahannya adalah: TypeError: objek 'tuple' tidak mendukung penugasan item.
+Tuple mungkin tampak sebagai objek yang bisa berubah. Misalnya, jika kita ingin mengubah daftar di immutable_collection dari [4, 5] menjadi [4, 5, 6]
+
+
+>>> immutable_collection[2].append(6)
+>>> print(immutable_collection[2])
+[4, 5, 6]
+// Ini berfungsi karena Daftar adalah objek yang bisa berubah. Mari kita coba ubah daftar kembali ke [4, 5].
+
+
+>>> immutable_collection[2] = [4, 5]
+Traceback (most recent call last):
+  File "<pyshell#33>", line 1, in <module>
+    immutable_collection[2] = [4, 5]
+TypeError: 'tuple' object does not support item assignment
+// perintah di atas terjadi error. Meskipun dapat mengubah konten objek yang dapat diubah dalam Tuple, namun tidak dapat mengubah referensi ke objek yang dapat diubah yang disimpan dalam memori.
+
+
+Higher Order Function
+--------------------------------------------------------------
+>>> def write_repeat(message, n):
+	for i in range(n):
+		print(message)
+
+		
+>>> write_repeat('Hello', 5)
+Hello
+Hello
+Hello
+Hello
+Hello
+//pada script diatas merupakan perulangan kata dengan jumlah baris tertentu, seperti pada contoh ('Hello',5) maka kata Hello akan muncul sebanyak 5 baris.
+
+>>> def hof_write_repeat(message, n, action):
+	for i in range(n):
+		action(message)
+		
+>>> hof_write_repeat('Hello', 5, print)
+Hello
+Hello
+Hello
+Hello
+Hello
+
+>>> import logging
+>>> hof_write_repeat('Hello', 5, logging.error)
+ERROR:root:Hello
+ERROR:root:Hello
+ERROR:root:Hello
+ERROR:root:Hello
+ERROR:root:Hello
+//fungsi pada script diatas adalah menuliskan kata ke 5 file atau mencatat pesan sebanyak 5 kali
+seperti contoh yang sudah dicoba adalah seperti diatas.
+
+>>> def add2(numbers):
+	new_numbers = []
+	for n in numbers:
+		new_numbers.append(n + 2)
+		return new_numbers
+
+	
+>>> print(add2([23, 88])) # [25, 90]
+[25]
+>>> def hof_add(increment):
+	def add_increment(numbers):
+		new_numbers = []
+		for n in numbers:
+			new_numbers.append(n + increment)
+			return new_numbers
+		return add_increment
+
+	
+>>> add5 = hof_add(5)
+>>> print(add5([23, 88]))
+Traceback (most recent call last):
+  File "<pyshell#38>", line 1, in <module>
+    print(add5([23, 88]))
+TypeError: 'NoneType' object is not callable
+//untuk menulis fungsi add5 dan add10, jelas akan beroperasi dalam hal yang sama mengulang daftar dan menambahkan incrementer.
+
+Lambda Expressions :
+------------------------------------------------------------------------
+>>> def hof_product(multiplier):
+	return lambda x: x * multiplier
+
+>>> mult6 = hof_product(6)
+>>> print(mult6(6))
+36
+//Ekspresi lambda dimulai dengan kata kunci lambda diikuti oleh argumen fungsi. Setelah titik dua adalah kode yang dikembalikan oleh lambda. Kemampuan untuk membuat fungsi "saat bepergian" ini banyak digunakan saat bekerja dengan Fungsi Orde Tinggi.
+
+
+Map :
+-------------------------------------------------------------------------
+>>> names = ['Shivani', 'Jason', 'Yusef', 'Sakura']
+>>> greeted_names = map(lambda x: 'Hi ' + x, names)
+>>> print(greeted_names)
+<map object at 0x0000000002FF9348>
+>>> for name in greeted_names:
+	print(name)
+
+	
+Hi Shivani
+Hi Jason
+Hi Yusef
+Hi Sakura
+
+//Fungsi map memungkinkan kita untuk menerapkan fungsi ke setiap elemen dalam objek yang dapat diubah. Misalnya, jika kami memiliki daftar nama dan ingin menambahkan salam ke Strings
+
+Filter :
+-------------------------------------------------------------------------
+>>> numbers = [13, 4, 18, 35]
+>>> div_by_5 = filter(lambda num: num % 5 == 0, numbers)
+>>> print(list(div_by_5))
+[35]
+//Fungsi filter menguji setiap elemen dalam objek yang dapat diulang dengan fungsi yang mengembalikan Benar atau Salah, hanya menjaga yang mengevaluasi ke True
+
+Combining map and filter:
+--------------------------------------------------------------------------
+>>> arbitrary_numbers = map(lambda num: num ** 3, filter(lambda num: num % 3 == 0, range(1, 21)))
+>>> print(list(arbitrary_numbers))
+[27, 216, 729, 1728, 3375, 5832]
+//dalam arbitrary_number dapat dipecah menjadi 3 bagian yaitu range (1, 21) adalah objek iterable yang mewakili angka dari 1, 2, 3, 4 ... 19, 20. filter (lambda num: num% 3 == 0, range (1, 21)) adalah sebuah iterator untuk urutan nomor 3, 6, 9, 12, 15 dan 18. Ketika dipotong dadu oleh ekspresi map bisa mendapatkan iterator untuk urutan nomor 27, 216, 729, 1728, 3375 dan 5832.
+
+
+List Comprehensions :
+-------------------------------------------------------------------------
+>>> names = ['Shivani', 'Jan', 'Yusef', 'Sakura']
+>>> greeted_names = ['Hi ' + name for name in names]
+>>> print(greeted_names)
+['Hi Shivani', 'Hi Jan', 'Hi Yusef', 'Hi Sakura']
+//Fitur popular Python yang muncul dalam Bahasa Pemrograman Fungsional adalah daftar pemahaman. Seperti fungsi map dan filter, pemahaman daftar memungkinkan kita untuk memodifikasi data secara ringkas dan ekspresif.
+
+
+>>> numbers = [13, 4, 18, 35]
+>>> div_by_5 = [num for num in numbers if num % 5 == 0]
+>>> print(div_by_5)
+[35]
+>>> arbitrary_numbers = [num ** 3 for num in range(1, 21) if num % 3 == 0]
+>>> print(arbitrary_numbers)
+[27, 216, 729, 1728, 3375, 5832]
+//Setiap ekspresi map dan filter dapat dinyatakan sebagai pemahaman daftar
