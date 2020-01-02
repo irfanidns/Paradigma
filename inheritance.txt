@@ -1,0 +1,32 @@
+class Perpustakaan(object):
+    def _init_(self, nama, alamat, posisi):
+        self.nama = nama
+        self.alamat = alamat
+        self.jabatan = jabatan
+
+    def nama(self):
+        print("Andi Prasetyo")
+
+    def alamat(self):
+        print("Sleman")
+	
+    def posisi(self):
+        print("Staff perpustakaan")
+
+
+class pegawai(Perpustakaan):
+    pass
+	
+a = pegawai("Dini", "Bantul", "administrasi perpustakaan")
+print()
+print("Nama:", a.nama)
+print("Alamat:", a.alamat)
+print("Posisi:", a.posisi)
+a.pegawai()
+
+b = pegawai("Roni", "Gunung Kidul", "penjaga perpustakaan")
+print()
+print("Nama:", a.nama)
+print("Alamat:", a.alamat)
+print("Posisi:", a.posisi)
+b.pegawai()
